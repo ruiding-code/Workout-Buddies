@@ -11,8 +11,16 @@ export default class LoginFacebook extends Component{
     }
 
     responseFacebook = (response) => {
-        console.log(response);
-    }
+        //console.log(response);
+
+        this.setState({
+            isLoggedIn: true,
+            userID: response.userID,
+            name: response.name,
+            email: response.email,
+            picture: response.picture.data.url
+        });
+    };
 
     componentClicked = () => {
         console.log('clicked');
@@ -23,13 +31,25 @@ export default class LoginFacebook extends Component{
         let facebookData;
 
         if(this.state.isLoggedIn){
-            facebookData = null;
+            facebookData = (
+                <div style={{
+                    width: '400px',
+                    margin: 'auto',
+                    background: '#f4f4f4',
+                    padding: '20px'
+                }}>
+                    <img src={this.state.picture} alt={this.state.name} /> 
+                    <h2>Welcome {this.state.name}</h2>
+
+                    
+                </div>
+            );
         } else {
             facebookData = (
             <FacebookLogin
                 appId="243647650504588"
                 autoLoad={true}
-                fields="name,picture"
+                fields="name,email,picture"
                 onClick={this.componentClicked}
                 callback={this.responseFacebook} />
             );
