@@ -33,10 +33,10 @@ export default class LoginFacebook extends Component{
         if(this.state.isLoggedIn){
             facebookData = (
                 <div style={{
-                    width: '400px',
+                    width: '300px',
                     margin: 'auto',
                     background: '#f4f4f4',
-                    padding: '20px'
+                    padding: '10px'
                 }}>
                     <img src={this.state.picture} alt={this.state.name} /> 
                     <h2>Welcome {this.state.name}</h2>
