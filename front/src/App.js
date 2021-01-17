@@ -4,7 +4,10 @@ import {Login} from "./Login";
 function App() {
   return (
     <div className="App">
-     <Login />
+    <h1>
+      Facebook Authentification
+    </h1>
+    <Login />
     </div>
   );
 }
